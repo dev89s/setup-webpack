@@ -2,7 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.js',
+  devServer: {
+    static: './dist',
+    port: 5500
+  },
   plugins: [
     new HtmlWebpackPlugin({
       // title: 'Output Management',
@@ -21,5 +26,8 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  optimization: {
+    // runtimeChunk: 'multi',
   },
 };
